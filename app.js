@@ -1,7 +1,21 @@
-const express = require("express");
+// Importing express and making an express application
+const express = require('express');
 const app = express();
-const port = 3000;
+// Importing body-parser
+const bodyParser = require('body-parser');
+// Importing cors
 const cors = require("cors");
+// Importing path
+const path = require("path");
+
+// Look for HTML files to render in the 'public' directory
+app.set('views', path.join(__dirname, 'public'));
+
+// Finishing up the body-parser set up
+app.use(bodyParser.urlencoded({extended: true}));
+
+// To extract data from requests
+app.use(express.urlencoded());
 
 quotes = [
   '"Perfect is the enemy of good." <br> –Voltaire',
@@ -21,9 +35,11 @@ quotes = [
   '"A learning curve is essential to growth." <br> –Tammy Bjelland'
 ];
 
+// Retrieves a quote at random
 function getRandomQuote() {
   index = Math.floor(Math.random() * quotes.length);
-  return quotes[4];
+  // changed from 4 to index to make it random
+  return quotes[index];
 }
 
 app.use(cors());
@@ -38,6 +54,9 @@ app.get("/", (req, res) => res.send("index"));
 //---------------------------
 
 // write route to get a random quote below this line
+app.get('/randomQuote', (req, res) => {
+  res.status(202).send(`${getRandomQuote()}`);
+});
 
 // (insert your code here)
 
@@ -49,4 +68,4 @@ app.get("/quotes/:index", (req, res) => res.send(quotes[req.params.index]));
 
 //---------------------------
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(3000, () => console.log(`Example app listening on port 3000!`));
