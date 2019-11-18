@@ -35,8 +35,8 @@ quotes = [
   '"A learning curve is essential to growth." <br> –Tammy Bjelland'
 ];
 
-// Retrieves a quote at random
-function getRandomQuote() {
+// ES6 version of its former self
+const getRandomQuote = () => {
   index = Math.floor(Math.random() * quotes.length);
   // changed from 4 to index to make it random
   return quotes[index];
@@ -48,15 +48,14 @@ app.use(express.static("public"));
 app.get("/", (req, res) => res.send("index"));
 
 // write route to get all quotes below this line
+app.get('/all', (req, res) => res.status(202).send(quotes));
 
 // (insert your code here)
 
 //---------------------------
 
 // write route to get a random quote below this line
-app.get('/randomQuote', (req, res) => {
-  res.status(202).send(`${getRandomQuote()}`);
-});
+app.get('/randomQuote', (req, res) => res.status(202).send(`${getRandomQuote()}`));
 
 // (insert your code here)
 
@@ -64,8 +63,13 @@ app.get('/randomQuote', (req, res) => {
 
 // make sure route can handle errors if index is out of range
 
-app.get("/quotes/:index", (req, res) => res.send(quotes[req.params.index]));
+app.get("/quotes/:index", (req, res) => {
+  // To get the actual item from the list
+  let index = req.params.index - 1;
+  
+  // If the index is within range, the quote is presented. Otherwise, a 404 page is presented stating that the quote doesn't exist
+  (req.params.index >= 1 && req.params.index <= 15) ? res.status(202).send(quotes[index]) : res.status(404).send(`Error: enter a number between 1 and 15.`);
+});
 
 //---------------------------
-
 app.listen(3000, () => console.log(`Example app listening on port 3000!`));
