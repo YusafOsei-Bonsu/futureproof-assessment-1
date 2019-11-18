@@ -26,7 +26,7 @@ You are going to debug and complete a Random Quotes generator. When you finish w
 
 ![](app-routes.gif)
 
-- (Incomplete) Debug code in the app.js and script.js so that a random quote is shown every time the button is clicked.
+- (In-Progress) Debug code in the app.js and script.js so that a random quote is shown every time the button is clicked.
 
 Your app should now look like this:
 
