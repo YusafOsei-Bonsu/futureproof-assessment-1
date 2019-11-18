@@ -59,7 +59,7 @@ app.get('/all', (req, res) => {
 // (insert your code here)
 //---------------------------
 // write route to get a random quote below this line
-app.get('/randomQuote', (req, res) => res.status(202).send(`${getRandomQuote()}`));
+app.get('/quote', (req, res) => res.status(202).send(`${getRandomQuote()}`));
 
 // (insert your code here)
 //---------------------------
@@ -69,3 +69,5 @@ app.get("/quotes/:index", (req, res) => (req.params.index >= 1 && req.params.ind
 
 //---------------------------
 app.listen(3000, () => console.log(`Example app listening on port 3000!`));
+
+module.exports = getRandomQuote;
