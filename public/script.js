@@ -1,18 +1,10 @@
-// Imported the random quote function from app.js to generate a random quote
-import getRandomQuote from './app.js';
-
 $('document').ready(function() {
-  // Assumed that by pressing the button, a random quote would emerge
-  $("#submitBtn").on("click", () => {
-    $("#text").text(`${getRandomQuote()}`);
-  });
-
   $("form").submit(event => {
 
   event.preventDefault();
   
   // I assumed that by entering 'localhost:8080/randomQuote', a random quote would be retrieved
-  axios.get("localhost:8080/randomQuote").then(response => {
+  axios.get("/quote").then(response => {
     
     quote = response.data;
 
