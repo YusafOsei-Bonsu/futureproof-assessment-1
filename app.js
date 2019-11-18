@@ -7,6 +7,8 @@ const bodyParser = require('body-parser');
 const cors = require("cors");
 // Importing path
 const path = require("path");
+// Importing http
+const http = require('http');
 
 // Look for HTML files to render in the 'public' directory
 app.set('views', path.join(__dirname, 'public'));
