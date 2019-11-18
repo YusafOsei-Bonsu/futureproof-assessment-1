@@ -33,10 +33,12 @@ h2 {
 }
 
 footer {
-  display: block;
   position: fixed;
+  left: 0;
   bottom: 0;
+  width: 100%;
   font-size: 12px;
+  text-align: right;
 }
 
 p {
