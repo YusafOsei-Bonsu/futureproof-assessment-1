@@ -18,7 +18,7 @@ You are going to debug and complete a Random Quotes generator. When you finish w
 
 - (DONE) Install the node modules and run your app.
 - (DONE) Edit button using CSS and HTML so that it looks like the one in the gif (don't worry about exact colour or font size) 
-- (Incomplete) The background image credits should be at the bottom right-hand corner of the page.
+- (DONE) The background image credits should be at the bottom right-hand corner of the page.
 - (DONE-ish) Clean CSS file (ie. if there are repeated or inherited properties and values that are not needed, delete them)
 - (DONE-ish) Add a route to get all quotes - check your answer in the browser
 - (DONE) Add a route to display a random quote
