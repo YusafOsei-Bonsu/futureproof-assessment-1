@@ -69,5 +69,3 @@ app.get("/quotes/:index", (req, res) => (req.params.index >= 1 && req.params.ind
 
 //---------------------------
 app.listen(3000, () => console.log(`Example app listening on port 3000!`));
-
-module.exports = getRandomQuote;
