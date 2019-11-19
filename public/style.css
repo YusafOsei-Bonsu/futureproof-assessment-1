@@ -11,8 +11,6 @@ body {
   background-image: url("background.jpg");
   background-size: cover;
   background-position: center;
-  /* duplicate font  */
-  font-family: "Quicksand", sans-serif;
 }
 
 section {
@@ -22,12 +20,10 @@ section {
   border-radius: 50px;
   flex-direction: column;
   text-align: center;
-  /* duplicate font */
-  font-family: "Quicksand", sans-serif;
 }
-/* redundant css for h1  */
-h1 {
-  display: hidden;
+
+.quicksand {
+  font-family: "Quicksand", sans-serif;
 }
 
 h2 {
