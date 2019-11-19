@@ -57,7 +57,17 @@ app.get('/all', (req, res) => {
 
   quotes.forEach(quote => allQuotes += `${quote} <br>`);
 
-  res.status(202).send(allQuotes);
+app.get('/quote', (req, res) => res.status(200).send(getRandomQuote()));
+
+app.get("/quotes/:index", (req, res) => {
+  // If the index is within the valid range...
+  if (req.params.index >= 1 && req.params.index <= quotes.length) {
+    // return the quote
+    res.status(200).send(quotes[req.params.index - 1]);
+  } else {
+    // Otherwise, return the error
+    res.status(404).send(`Error: enter a number between 1 and 15.`);
+  }
 });
 
 // (insert your code here)
@@ -73,3 +83,5 @@ app.get("/quotes/:index", (req, res) => (req.params.index >= 1 && req.params.ind
 
 //---------------------------
 app.listen(3000, () => console.log(`Example app listening on port 3000!`));
+
+});
