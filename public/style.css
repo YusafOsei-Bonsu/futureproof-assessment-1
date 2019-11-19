@@ -5,6 +5,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "Quicksand", sans-serif;
 }
 
 body {
@@ -20,10 +21,6 @@ section {
   border-radius: 50px;
   flex-direction: column;
   text-align: center;
-}
-
-.quicksand {
-  font-family: "Quicksand", sans-serif;
 }
 
 h2 {
