@@ -9,7 +9,7 @@ $('document').ready(function() {
       quote = response.data;
       $("#text").css({
         "text-align": "center",
-        "font-size": "10px",
+        "min-height": "5px",
         "display": "flex",
         "justify-content": "center",
         "align-items": "center"
