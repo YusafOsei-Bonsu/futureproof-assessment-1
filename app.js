@@ -63,7 +63,7 @@ app.get('/all', (req, res) => {
 // (insert your code here)
 //---------------------------
 // write route to get a random quote below this line
-app.get('/quote', (req, res) => res.status(202).send(`${getRandomQuote()}`));
+// app.get('/quote', (req, res) => res.status(202).send(`${getRandomQuote()}`));
 
 // (insert your code here)
 //---------------------------
