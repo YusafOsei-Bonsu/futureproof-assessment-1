@@ -5,13 +5,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "Quicksand", sans-serif;
 }
 
 body {
   background-image: url("background.jpg");
   background-size: cover;
   background-position: center;
-  font-family: "Quicksand", sans-serif;
 }
 
 section {
@@ -21,11 +21,6 @@ section {
   border-radius: 50px;
   flex-direction: column;
   text-align: center;
-  font-family: "Quicksand", sans-serif;
-}
-
-h1 {
-  display: hidden;
 }
 
 h2 {

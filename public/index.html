@@ -11,18 +11,17 @@
       integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
       crossorigin="anonymous"
     ></script>
-    <script src="./script.js" type="javascript"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
   </head>
   <body class="flex">
     <section class="flex">
-      <h2 id="text">Motivational Quotes</h2>
-      <form>
-        <input id="submitBtn" type="submit" value="Get Inspired"/>
+      <h2>Motivational Quotes</h2>
+      <form action="/quote" method="GET">
+        <input type="submit" value="Get Inspired"/>
       </form>
       <h1 id="text"></h1>
     </section>
-    
     <footer>
       <p>Image from Unsplash by Kenrick Mills</p>
     </footer>
