@@ -9,9 +9,11 @@ const cors = require("cors");
 const path = require("path");
 // Importing http
 const http = require('http');
+// Importing the axios pkg
+const axios = require('axios');
 
 // Look for HTML files to render in the 'public' directory
-app.set('views', path.join(__dirname, 'public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Finishing up the body-parser set up
 app.use(bodyParser.urlencoded({extended: true}));
@@ -19,7 +21,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 // To extract data from requests
 app.use(express.urlencoded());
 
-quotes = [
+const quotes = [
   '"Perfect is the enemy of good." – <strong>Voltaire</strong>',
   '"I’m still learning." – <strong>Michelangelo</strong>',
   '"Life is a journey, not a destination." – <strong>Ralph Waldo Emerson</strong>',
