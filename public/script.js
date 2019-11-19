@@ -6,7 +6,7 @@ $('document').ready(() =>  {
       quote = response.data;
       $("#text").css({
         "text-align": "center",
-        "min-height": "150px",
+        "min-height": "5px",
         "display": "flex",
         "justify-content": "center",
         "align-items": "center"
