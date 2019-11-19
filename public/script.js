@@ -7,9 +7,9 @@ $('document').ready(function() {
     
     // I assumed that by entering 'localhost:8080/randomQuote', a random quote would be retrieved
     axios.get("/quote").then(response => {
-      quote = response.data;
+      quote = response.body;
       $("#text").css({"min-height": "150px"});
-      $("#text").html(`<p>${quote}</p>`);
+      $("#text").html(`${quote}`);
       }).catch(error => console.log(error));
     });
 });
