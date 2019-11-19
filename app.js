@@ -20,14 +20,12 @@ quotes = [
   '"A learning curve is essential to growth." – <strong>Tammy Bjelland</strong>'
 ];
 
-// ES6 version of its former self
-const getRandomQuote = () => {
-  index = Math.floor(Math.random() * quotes.length);
-  // changed from 4 to index to make it random
-  return quotes[index];
-}
+// ES6 version of its former self. It returns a random quote.
+const getRandomQuote = () => quotes[Math.floor(Math.random() * quotes.length)];
 
 app.use(cors());
+
+// Access to static files in public directory, including CSS and HTML
 app.use(express.static("public"));
 
 app.get("/", (req, res) => res.send("index"));
@@ -36,17 +34,26 @@ app.get('/all', (req, res) => {
   let allQuotes = '';
   quotes.forEach(quote => allQuotes += `${quote} <br>`);
   // although 202 is 'accepted' - a 200 response would be used here
-  res.status(202).send(allQuotes);
+  res.status(200).send(allQuotes);
 });
 
 // although 202 is 'accepted' - a 200 response would be used here
 // by making the response a string here you will create challenges in the axios call from the click event.
-app.get('/quote', (req, res) => res.status(202).send(getRandomQuote()));
+app.get('/quote', (req, res) => res.status(200).send(getRandomQuote()));
 
 // although 202 is 'accepted' - a 200 response would be used here
 // ensure that your code is readable for other humans - format is so it is more friendly
 // if the quotes array was extended, would this logic still be valid?
-app.get("/quotes/:index", (req, res) => (req.params.index >= 1 && req.params.index <= 15) ? res.status(202).send(quotes[req.params.index - 1]) : res.status(404).send(`Error: enter a number between 1 and 15.`));
+app.get("/quotes/:index", (req, res) => {
+  // If the index is within the valid range...
+  if (req.params.index >= 1 && req.params.index <= quotes.length) {
+    // return the quote
+    res.status(200).send(quotes[req.params.index - 1]);
+  } else {
+    // Otherwise, return the error
+    res.status(404).send(`Error: enter a number between 1 and 15.`);
+  }
+});
 
 //---------------------------
 app.listen(3000, () => console.log(`Example app listening on port 3000!`));
