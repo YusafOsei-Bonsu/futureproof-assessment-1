@@ -1,21 +1,6 @@
-// Importing express and making an express application
 const express = require('express');
 const app = express();
-// Importing body-parser
-const bodyParser = require('body-parser');
-// Importing cors
 const cors = require("cors");
-// Importing path
-const path = require("path");
-
-// Look for HTML files to render in the 'public' directory
-app.set('views', path.join(__dirname, 'public'));
-
-// Finishing up the body-parser set up
-app.use(bodyParser.urlencoded({extended: true}));
-
-// To extract data from requests
-app.use(express.urlencoded());
 
 quotes = [
   '"Perfect is the enemy of good." – <strong>Voltaire</strong>',
@@ -47,24 +32,20 @@ app.use(express.static("public"));
 
 app.get("/", (req, res) => res.send("index"));
 
-// write route to get all quotes below this line
 app.get('/all', (req, res) => {
   let allQuotes = '';
-
   quotes.forEach(quote => allQuotes += `${quote} <br>`);
-
+  // although 202 is 'accepted' - a 200 response would be used here
   res.status(202).send(allQuotes);
 });
 
-// (insert your code here)
-//---------------------------
-// write route to get a random quote below this line
-app.get('/quote', (req, res) => res.status(202).send(`${getRandomQuote()}`));
+// although 202 is 'accepted' - a 200 response would be used here
+// by making the response a string here you will create challenges in the axios call from the click event.
+app.get('/quote', (req, res) => res.status(202).send(getRandomQuote()));
 
-// (insert your code here)
-//---------------------------
-// make sure route can handle errors if index is out of range
-// If the index is within the range, a quote is returned. Otherwise, a 404 webpage is presented, stating that the requested quote doesn't exist.
+// although 202 is 'accepted' - a 200 response would be used here
+// ensure that your code is readable for other humans - format is so it is more friendly
+// if the quotes array was extended, would this logic still be valid?
 app.get("/quotes/:index", (req, res) => (req.params.index >= 1 && req.params.index <= 15) ? res.status(202).send(quotes[req.params.index - 1]) : res.status(404).send(`Error: enter a number between 1 and 15.`));
 
 //---------------------------
